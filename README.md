@@ -42,3 +42,8 @@ Marker e Popup personalizzati
 Polilinee, poligoni, cerchi e rettangoli
 
 GeoJSON per layer interattivi
+
+
+
+const map = L.map('map').setView([lat, lng], zoom);
+
