@@ -1,0 +1,166 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+ 
+#loginContainer {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    padding: 50px 45px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    width: 420px;
+    max-width: 95%;
+    text-align: center;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+ 
+#loginContainer h1 {
+    background: linear-gradient(135deg, #5563DE, #74ABE2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+}
+ 
+body:has(#loginContainer:not([style*="display:none"])) {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+ 
+#loginContainer h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+ 
+#loginContainer input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    outline: none;
+}
+ 
+#loginContainer a {
+    color: #5563DE;
+    text-decoration: none;
+    font-weight: bold;
+}
+ 
+#loginContainer a:hover {
+    text-decoration: underline;
+}
+ 
+#app {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+ 
+#map {
+    height: 100%;
+    width: 100%;
+}
+ 
+#logoutBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+ 
+#mapControls {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+ 
+#legendContainer {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+ 
+#legendCollapse {
+    display: block !important;
+}
+ 
+.legend {
+    background: white;
+    padding: 6px 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    line-height: 18px;
+    color: #333;
+}
+ 
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.8;
+}
+ 
+.leaflet-bottom.leaflet-right {
+    z-index: 999;
+}
+ 
+.leaflet-popup-content-wrapper {
+    border-radius: 6px;
+}
+.leaflet-popup-content {
+    margin: 10px;
+}
+ 
+/*
+ * Dropdown menu overlay fix: forza i menu a tendina a essere assoluti, fuori dal flusso,
+ * ancorati al bottone, e ad aprirsi verso l'alto (sovrapposti, senza spostare i bottoni).
+ * Funziona per DaisyUI/Tailwind e menu custom con la classe .dropup-content
+ */
+ 
+.dropup-content {
+    position: absolute !important;
+    left: 0;
+    right: auto;
+    bottom: 100%; /* apre verso l'alto */
+    top: auto;
+    z-index: 9999;
+    min-width: 100%;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    /* opzionale: animazione fade-in */
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.15s;
+}
+ 
+/* Assicura che il contenitore del dropdown sia relativo per l'ancoraggio */
+.dropdown, details.dropdown {
+    position: relative !important;
+}
+ 
+/* Nasconde il menu quando il dropdown è chiuso (DaisyUI/HTML details) */
+.dropdown:not([open]) .dropup-content,
+details.dropdown:not([open]) .dropup-content {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+ 
+/* Rimuove eventuali margin/padding verticali che causano "spinta" */
+.menu.dropup-content {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
