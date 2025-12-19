@@ -2,7 +2,7 @@ import PocketBase from 'pocketbase';
  
 // --- CONFIGURAZIONE POCKETBASE ---
 // La tua macchina
-const pb = new PocketBase('http://192.168.0.169:8090'); // cambia con il tuo indirizzo IP locale
+const pb = new PocketBase('http://192.168.0.170:8090'); // cambia con il tuo indirizzo IP locale
 pb.autoCancellation(false);
  
 // Variabile globale per l'istanza della mappa
@@ -302,7 +302,6 @@ async function initMapAndFetch(){
     satelliteGroup = L.layerGroup([satelliteTile, labelsTile]);
    
     // --- TILE GEOGRAFICO (MODIFICATO: Street Map Style) ---
-    // Abbiamo sostituito OpenStreetMap classico con Esri World Street Map
     geographicTile = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
         attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012',
         maxZoom: 19
@@ -313,8 +312,7 @@ async function initMapAndFetch(){
         if (currentBaseLayer) {
             map.removeLayer(currentBaseLayer);
         }
- 
-        // Rimuovi la classe 'font-bold' da tutti gli elementi nel menu
+
         layerMenu.querySelectorAll('a').forEach(a => {
             a.classList.remove('font-bold');
         });
