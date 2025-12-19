@@ -33,7 +33,7 @@ function showApp() {
 // Controllo sessione esistente
 if(pb.authStore.isValid) showApp();
 
-// --- GESTIONE AUTH ---
+// --- GESTIONE AUTENTICAZIONE ---
 logoutBtn?.addEventListener("click", () => { 
     pb.authStore.clear(); 
     location.reload(); 
